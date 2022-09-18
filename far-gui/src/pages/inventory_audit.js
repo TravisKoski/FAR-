@@ -1,5 +1,6 @@
-import CategoryFilter from "../components/inventory_audit/inventory_list"
+import CategoryFilter from "../components/inventory_audit/product_category_filter"
 import ApiService from "../utils/fetch";
+import ProductList from "../components/inventory_audit/product_list";
 import {useState, useEffect} from "react"
 const ItemAudit = () =>{
     const[items, setItems] = useState([]);
@@ -15,11 +16,11 @@ const ItemAudit = () =>{
     }
     useEffect(()=>{
         fetchItems();
-        console.log(items);
     },[categoryToView])
     return(
         <>
     <CategoryFilter filter = {categoryToView} setFilter = {setCategoryToView}/>
+    <ProductList products = {items}/>
     <></>
     </>
     )
