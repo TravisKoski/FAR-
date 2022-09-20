@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   #changes the PI of an item
   def update_PI
     target_item = Item.find_by_id(params[:id])
-    target_item.update!(PI: params[:new_qty])
+    target_item.update!(PI: params[:new_qty].to_i)
     render json: target_item
   end
 
