@@ -1,5 +1,4 @@
 import ApiService from "./fetch";
-import { useParams } from "react-router";
 const InventoryAuditUtils = ()=>{
     const fetchCurrentItem = (id, setItem) =>{
         const fetcher = ApiService();

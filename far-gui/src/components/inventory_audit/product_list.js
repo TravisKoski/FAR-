@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import {useNavigate} from "react-router-dom"
 
 
+
 const ProductList = (props) =>{
     let products = [props.products].flat();
     let navigator = useNavigate();
@@ -14,6 +15,7 @@ const ProductList = (props) =>{
                     <th>item price</th>
                     <th>case quantity</th>
                     <th>PI</th>
+
                 </tr>
 
             </thead>
