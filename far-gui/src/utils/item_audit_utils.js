@@ -3,7 +3,7 @@ const InventoryAuditUtils = ()=>{
     const fetchCurrentItem = (id, setItem) =>{
         const fetcher = ApiService();
         const url = `http://localhost:3000/items/${id}`;
-        fetcher.get(url).then(response => console.log(response.data))
+        fetcher.get(url).then(response => setItem(response.data))
         .catch(error=>{console.log(error)})
 
     };

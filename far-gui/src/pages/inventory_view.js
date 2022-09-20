@@ -5,11 +5,11 @@ import {useState, useEffect} from "react"
 
 const ItemView = () =>{
     const[items, setItems] = useState([]);
-    const [categoryToView, setCategoryToView] = useState("");
+    const [categoryToView, setCategoryToView] = useState("dry grocery");
     //below function calls the index method from backend
     const fetchItems = () =>{
         const fetcher = ApiService();
-        const getAllItemsUrl = `http://localhost:3000/items/${categoryToView}`;
+        const getAllItemsUrl = `http://localhost:3000/items/find_by_category/${categoryToView}`;
         fetcher.get(getAllItemsUrl)
         .then(response => {setItems(response.data); console.log(response.data)})
         .catch(error =>{console.log(error)});

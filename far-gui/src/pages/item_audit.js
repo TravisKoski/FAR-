@@ -1,19 +1,26 @@
 /* This page is where the user of the system can adjust an Items PI value, as well as manually
 order it*/
 import InventoryAuditUtils from "../utils/item_audit_utils"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
+import {Table} from "react-bootstrap"
 
 const ItemAudit = () => {
     const {id} = useParams();
-    console.log(id);
     const backendServices = InventoryAuditUtils();
     const [currentItem, setCurrentItem] = useState({});
     //get item from backend
-    backendServices.fetchCurrentItem(id, setCurrentItem);
-    console.log(currentItem);
+    useEffect(() =>{
+        backendServices.fetchCurrentItem(id, setCurrentItem);
+
+    }, [])
+    
     return(
-        <h1>Item audit tools here</h1>
+        <>
+        <h1>options for {currentItem.name} below</h1>
+        </>
+
+    
     )
 }
 export default ItemAudit
