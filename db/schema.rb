@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_13_021715) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_20_210221) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -21,4 +21,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_021715) do
     t.integer "PI"
   end
 
+  create_table "order_batches", force: :cascade do |t|
+    t.string "category"
+    t.boolean "active"
+    t.string "from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_tickets", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_batch_id", null:false
+    t.index ["item_id"], name: "index_order_tickets_on_item_id"
+    t.index ["order_batch_id"], name: "index_order_tickets_on_order_batch_id"
+  end
+
+  add_foreign_key "order_tickets", "items"
+  add_foreign_key "order_tickets", "order_batches"
 end
