@@ -10,6 +10,7 @@ const ProductList = (props) =>{
                     <th>item category</th>
                     <th>item price</th>
                     <th>case quantity</th>
+                    <th>PI</th>
                 </tr>
 
             </thead>
@@ -20,7 +21,8 @@ const ProductList = (props) =>{
                         <td>{product.name}</td>
                         <td>{product.category}</td>
                         <td>{product.price}</td>
-                        <td>{product.case_quantity}</td>
+                        <td>{product.casePack}</td>
+                        <td> {product.PI}</td>
                     </tr>
                 ))}               
             </tbody>
