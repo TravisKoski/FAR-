@@ -22,7 +22,7 @@ const ItemAudit = () => {
     return(
         <>
         <h1>options for {currentItem.name} below</h1>
-        <ItemAdjustmentForm currentItem={currentItem}/>
+        <ItemAdjustmentForm currentItem={currentItem} onUpdate = {services.adjustPI}/>
         
         </>
 
