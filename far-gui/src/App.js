@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route exact path = "/" element = {<Home/>}/>
         <Route exact path = "/inventory_view" element = {<ItemView/>}/>
-        <Route exact path = "/item_audit/:id" elemend = {<ItemAudit/>}/>
+        <Route exact path = "/item_audit/:id" element = {<ItemAudit/>}/>
         <Route exact path = "/negative_pi" element = {<NegativePI/>}/>
         
       </Routes>

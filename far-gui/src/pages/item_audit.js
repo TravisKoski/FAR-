@@ -5,12 +5,12 @@ import {useState} from "react"
 import {useParams} from "react-router-dom"
 
 const ItemAudit = () => {
-    let {itemId} = useParams();
-    let itemIdValue = itemId.id
+    const {id} = useParams();
+    console.log(id);
     const backendServices = InventoryAuditUtils();
-    const [currentItem, setCurrentItem] = useState(null);
+    const [currentItem, setCurrentItem] = useState({});
     //get item from backend
-    backendServices.fetchCurrentItem(itemIdValue, setCurrentItem);
+    backendServices.fetchCurrentItem(id, setCurrentItem);
     console.log(currentItem);
     return(
         <h1>Item audit tools here</h1>

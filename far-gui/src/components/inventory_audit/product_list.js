@@ -1,5 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import {useNavigate} from "react-router-dom"
+import {Button} from "react-bootstrap"
 
 
 
@@ -15,6 +16,7 @@ const ProductList = (props) =>{
                     <th>item price</th>
                     <th>case quantity</th>
                     <th>PI</th>
+                    <th>Audit options</th>
 
                 </tr>
 
@@ -28,6 +30,7 @@ const ProductList = (props) =>{
                         <td>{product.price}</td>
                         <td>{product.casePack}</td>
                         <td> {product.PI}</td>
+                        <td><Button onClick = {()=>{navigator(`/item_audit/${product.id}`)}}>Audit this item</Button></td>
                     </tr>
                 ))}               
             </tbody>
