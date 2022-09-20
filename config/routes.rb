@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/items/:category", to: "items#by_category"
+  get "/items/find_by_category/:category", to: "items#by_category"
   put "/items/:id/adjust_PI/", to: "items#update_PI"
   resources :items
   
