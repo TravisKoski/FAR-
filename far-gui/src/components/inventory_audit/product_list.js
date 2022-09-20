@@ -1,7 +1,10 @@
 import Table from 'react-bootstrap/Table';
+import {useNavigate} from "react-router-dom"
+
+
 const ProductList = (props) =>{
     let products = [props.products].flat();
-    console.log(products)
+    let navigator = useNavigate();
     return(
         <Table striped bordered hover>
             <thead>

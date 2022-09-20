@@ -12,7 +12,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/negative_PI">Negative PI batches</Nav.Link>
-            <Nav.Link href="/inventory_audit">inventory audit</Nav.Link>
+            <Nav.Link href="/inventory_view">inventory view</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
