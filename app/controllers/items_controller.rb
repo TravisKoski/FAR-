@@ -18,8 +18,11 @@ class ItemsController < ApplicationController
     category = params[:category]
     casePack = params[:casePack].to_i
     price = params[:price].to_f
+    if name.nil? ||category.nil? ||casePack.nil? || price.nil?
+      render :status=>422 and return
+    end
     new_item = Item.create!(name:name,category:category,price:price, casePack: casePack )
-    render json new_item
+    render json: new_item
   end
 
   #changes the PI of an item
