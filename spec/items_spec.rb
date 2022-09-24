@@ -25,4 +25,25 @@ RSpec.describe "Items", type: :request do
             expect(response.status).to eq(422)
         end
     end
+    describe "update item PI" do
+        #create a dummy item to update
+        let(:item) { Item.create(name: "test dry item", category: "dry grocery", price:12.99, casePack:24)}
+        scenario "Update to a valid PI" do
+            put "/items/#{item.id}/adjust_PI", params:{new_qty: 12}
+            expect(response.status).to eq(200)
+            json= JSON.parse(response.body).deep_symbolize_keys
+            expect(json[:PI]).to eq(12)
+        end
+        scenario "Updating to a non number PI should not be allowed" do
+            put "/items/#{item.id}/adjust_PI", params:{new_qty: "hello"}
+            #response will still be valid
+            expect(response.status).to eq(200)
+            json = JSON.parse(response.body).deep_symbolize_keys
+            #value of PI should be null
+            expect(json[:pi]).to eq(nil)
+        end
+
+
+    end
+
 end
