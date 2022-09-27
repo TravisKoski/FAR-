@@ -6,6 +6,7 @@ import Home from "./pages/HomePage"
 import ItemView from "./pages/inventory_view"
 import ItemAudit from "./pages/item_audit"
 import NegativePI from "./pages/negative_pi"
+import OrderManagement from "./pages/OrderManagement"
 import {
   BrowserRouter as Router,
   Route,
@@ -22,6 +23,7 @@ function App() {
         <Route exact path = "/inventory_view" element = {<ItemView/>}/>
         <Route exact path = "/item_audit/:id" element = {<ItemAudit/>}/>
         <Route exact path = "/negative_pi" element = {<NegativePI/>}/>
+        <Route exact path = "/review_orders" element = {<OrderManagement/>}/>
         
       </Routes>
       </Router>

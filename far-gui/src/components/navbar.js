@@ -13,6 +13,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="/negative_PI">Negative PI batches</Nav.Link>
             <Nav.Link href="/inventory_view">inventory view</Nav.Link>
+            <Nav.Link href = "/review_orders">review orders</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
