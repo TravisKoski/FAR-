@@ -24,7 +24,7 @@ const ItemAudit = () => {
         <>
         <h1>options for {currentItem.name} below</h1>
         <ItemAdjustmentForm currentItem={currentItem} onUpdate = {services.adjustPI}/>
-        <OrderForm/>
+        <OrderForm id = {id} onOrder = {services.OrderItem}/>
         
         </>
 

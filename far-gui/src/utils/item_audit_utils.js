@@ -14,8 +14,13 @@ const InventoryAuditUtils = ()=>{
         const url = `http://localhost:3000/items/${id}/adjust_PI`;
         fetcher.put(url, {new_qty: newPI});
     };
+    const OrderItem = (id, caseCount)=>{
+        const fetcher = ApiService();
+        const url= `http://localhost:3000/orders/add_item`;
+        fetcher.put(url, {item_id: id, case_count: caseCount});
+    };
 
-    return({fetchCurrentItem, adjustPI})
+    return({fetchCurrentItem, adjustPI,OrderItem})
 
 }
 export default InventoryAuditUtils
