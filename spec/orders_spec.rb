@@ -1,5 +1,27 @@
 require "rails_helper"
 RSpec.describe "orders", type: :request do
+    describe "Transmit an open order" do
+        #make some example items and order them
+        let!(:item1){Item.create(name: "test item1", category: "perishable",price:0, casePack:1, PI: 0)}
+        let!(:item2){Item.create(name: "test item2", category: "perishable",price:0, casePack:1, PI:0)}
+
+        it "successfully updates the PI of all items within the order batch" do
+            #order the items first
+            put "/orders/add_item", params: {item_id: 2, case_count: 2}
+            put "/orders/add_item", params: {item_id: 1, case_count: 10}
+            put "/orders/1/transmit"
+            expect(response.status).to eq(200)
+            #Re fetch those items from DB and check of the new PI's are correct
+            get "/items/1"
+            json = JSON.parse(response.body, symbolize_names: true)
+            expect(json[:PI]).to eq(10)
+            get "/items/2"
+            json = JSON.parse(response.body, symbolize_names: true)
+            expect(json[:PI]).to eq(2)
+
+        end
+    end
+    
     describe "Render open orders" do
         let!(:order) {OrderBatch.create(category: "perishable", active: true, from: "FAR")}
         scenario "Successfully views orders" do
@@ -47,4 +69,5 @@ RSpec.describe "orders", type: :request do
     
         end
     end
+    
 end

@@ -32,8 +32,24 @@ class OrdersController < ApplicationController
   end
 
   def close
+
   end
 
   def transmit
+    #iterate through each ticket
+    order_batch = OrderBatch.find_by_id(params[:id])
+    tickets = order_batch.order_tickets.to_a
+    tickets.each do |ticket|
+      current_item = Item.find_by_id(ticket.item_id)
+      #adjust the pi by case count of item * how many cases were ordered
+      case_count = current_item.casePack
+      current_PI = current_item.PI
+      quantity_ordered = ticket.quantity
+      current_item.update(PI: current_PI + case_count*quantity_ordered)
+    end
+    #close out the order batch
+    order_batch.destroy!
+    render status: 200
+
   end
 end
