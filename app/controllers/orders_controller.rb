@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   #renders all open orders
   def review
     open_orders = OrderBatch.all
-    render json: open_orders.to_json(:include=>:order_tickets)
+    render json: open_orders
   end
 
   def close
