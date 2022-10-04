@@ -6,6 +6,8 @@ import {useParams} from "react-router-dom"
 import {Table} from "react-bootstrap"
 import ItemAdjustmentForm from "../components/inventory_audit/adjustment_form"
 import OrderForm from "../components/inventory_audit/order_form"
+import styles from "../custom.module.css"
+
 
 const ItemAudit = () => {
     const {id} = useParams();
@@ -21,12 +23,12 @@ const ItemAudit = () => {
     }, [])
     
     return(
-        <>
+        <div class = {styles.inventory_audit_page}>
         <h1>options for {currentItem.name} below</h1>
         <ItemAdjustmentForm currentItem={currentItem} onUpdate = {services.adjustPI}/>
         <OrderForm id = {id} onOrder = {services.OrderItem}/>
         
-        </>
+        </div>
 
     
     )

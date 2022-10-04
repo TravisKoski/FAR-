@@ -1,0 +1,28 @@
+.item_audit_form{
+    background-color: rgba(0, 255, 183, 0.305);
+}
+.order_form{
+    background-color: rgba(170, 0, 255, 0.435);
+}
+.inventory_audit_page{
+    background-image: url("slaveway.jpg");
+    height: 100vh;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index:-1
+}
+.item_list_page{
+    background-image: url("backroom.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100vh;
+  z-index: -1;
+}
+.item_list_table{
+    background-color: white
+}
+body, html{
+    height:100%
+}

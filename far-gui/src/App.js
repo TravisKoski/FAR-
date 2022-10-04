@@ -7,6 +7,7 @@ import ItemView from "./pages/inventory_view"
 import ItemAudit from "./pages/item_audit"
 import NegativePI from "./pages/negative_pi"
 import OrderManagement from "./pages/OrderManagement"
+import styles from "./custom.module.css";
 import {
   BrowserRouter as Router,
   Route,

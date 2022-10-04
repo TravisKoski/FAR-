@@ -1,8 +1,10 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
+import styles from "../../custom.module.css"
 const OrderForm = ({id, onOrder})=>{
     const [numCases, setNumCases] = useState(0);
     const navigator = useNavigate();
+    console.log(styles.order_form)
     const onSubmit = (e)=>{
         e.preventDefault();
         if(numCases < 0){
@@ -20,7 +22,7 @@ const OrderForm = ({id, onOrder})=>{
     };
     return(
         <form onSubmit = {onSubmit}>
-            <div class = "form-control">
+            <div class = {styles.order_form}>
                 <label>
                     Enter nmber of cases to order here
                 <input type = "number" name = "case amt" value = {numCases}

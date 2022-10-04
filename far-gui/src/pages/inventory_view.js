@@ -2,6 +2,7 @@ import CategoryFilter from "../components/inventory_audit/product_category_filte
 import ApiService from "../utils/fetch";
 import ProductList from "../components/inventory_audit/product_list";
 import {useState, useEffect} from "react"
+import styles from "../custom.module.css"
 
 const ItemView = () =>{
     const[items, setItems] = useState([]);
@@ -19,11 +20,12 @@ const ItemView = () =>{
         fetchItems();
     },[categoryToView])
     return(
-        <>
+        <div class = {styles.item_list_page}>
     <CategoryFilter filter = {categoryToView} setFilter = {setCategoryToView}/>
-    <ProductList products = {items}/>
-    <></>
-    </>
+    <div class = {styles.item_list_table}>
+    <ProductList  products = {items}/>
+    </div>
+    </div>
     )
 };
 export default ItemView;
